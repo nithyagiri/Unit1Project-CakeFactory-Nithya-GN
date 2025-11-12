@@ -12,8 +12,8 @@ const CakeCard =({cake}) =>{
             />
             <div className="cake-card-text">
                 <h5>{cake.name}</h5>
-                <h6>{cake.description} </h6>
-                <h6>{`${cake.price} $`}</h6>
+     {/*}           <h6>{cake.description} </h6>
+                <h6>{`Price: ${cake.price} $`}</h6> */}
             </div>
         </Card>
     );

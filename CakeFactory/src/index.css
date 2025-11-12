@@ -24,6 +24,8 @@ body::before{
 #body-container{
     display:flex;
     flex-direction:column;
+   width :100%;
+   height :100%;
     min-height:100vh;
 }
 header,
@@ -93,7 +95,7 @@ h5{
 }
 h6{
     color:#1e323c;
-    font-weight:600;
+    font-weight:500;
     font-size:1rem;
 }
 p{
@@ -166,3 +168,31 @@ a:active{
     text-decoration: underline;
     cursor: pointer;
 }
+/* Card components*/
+.cake-card-container{
+    display:grid;
+    columns:1;
+    column-gap:15px;
+    margin-top:20px;
+    gap:1rem
+}
+.cake-details-container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+.cake-card-text{
+    display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  white-space: normal;
+}
+.cake-card-text > h5{
+    margin-bottom:4px;
+}
+.cake-card-image{
+    width:100%;
+    max-width:700px;
+    margin-bottom:8px;
+}
+
