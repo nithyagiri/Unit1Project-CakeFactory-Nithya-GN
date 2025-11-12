@@ -1,0 +1,198 @@
+
+body{
+    background-color: whitesmoke;
+    color: #1e323c;
+    font-family:'Poppins', sans-serif;
+    min-height: 100vh;
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+body::before{
+    background-image:url('https://i.ibb.co/QFkgqFwc/background.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    content:'';
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0.2;
+    z-index:-1;
+}
+#body-container{
+    display:flex;
+    flex-direction:column;
+   width :100%;
+   height :100%;
+    min-height:100vh;
+}
+header,
+footer{
+     display: flex;
+     flex-direction:column;
+     align-items:center;
+     background-color: hsl(315, 78%, 82%);
+     color: rgb(14, 3, 3);
+     width:100%;
+     padding: 15px clamp( 20px,4vw,30px) 20px;
+}
+
+main{
+    flex:1;
+}
+.main-content{
+    padding: 10px clamp(20px,4vw,30px) 20px;
+}
+strong{
+    font-weight:900;
+}
+
+h1,
+h2,
+h3,
+h4{
+    font-family: 'Dancing Script', cursive;
+}
+h1,
+h3,
+h4,
+h5,
+h6{
+    margin:12px 0 0;
+}
+
+h1{
+    color:#83062f;
+    font-size: 1.5rem;
+    font-weight:700;
+}
+h2{
+    color: white;
+    background-color:#83062f;
+    font-size: 1.1rem;
+    font-weight:200;
+    letter-spacing: 6px;
+    width:auto;
+    border-radius: 2px;
+    padding:5px 8px;
+    margin:20px 0;
+}
+h3{
+    color:#1e323c;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+h4{
+    color:#83062f;
+    font-size:1.1rem;
+}
+h5{
+    color:#83062f;
+    font-weight:700;
+    font-size:1.1rem;
+}
+h6{
+    color:#1e323c;
+    font-weight:500;
+    font-size:1rem;
+}
+p{
+    margin:6px 0;
+}
+a,
+.link-like{
+    color:#83062f;
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
+}
+a:hover,
+a:active{
+    color:#83062f;
+}
+.card{
+    display:inline-block;
+    vertical-align:top;
+    color:#1e323c;
+    background-color:white;
+    width:10%;
+    margin-bottom:15px;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    filter:drop-shadow(0px 2px 2px rgba(30, 50, 60, 0.5));
+}
+.clickable-card{
+    transition:filter 0.2s ease-in-out;
+}
+.clickable-card:hover {
+   filter:drop-shadow(0px,5px,5px rgba(30,50,60,0.5));
+   cursor: pointer;
+}
+#cake {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    font-weight: 300; 
+    margin:0;
+    padding:0;       
+} 
+/*layout component*/
+.nav-menu {
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+
+}
+.link:link,
+.link:visited{
+    color:rgba(255,255,255,0.86);
+    font-size:0.9rem;
+    font-weight:400;
+    text-decoration:none;
+}
+.link {
+   color: #e91e63;
+  cursor: pointer;
+  font-weight: 500;
+  
+}
+
+.link:hover {
+    color: #ff4081;
+    transform: scale(1.05);
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* Card components*/
+.cake-card-container{
+    display:grid;
+    columns:1;
+    column-gap:15px;
+    margin-top:20px;
+    gap:1rem
+}
+.cake-details-container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+.cake-card-text{
+    display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  white-space: normal;
+}
+.cake-card-text > h5{
+    margin-bottom:4px;
+}
+.cake-card-image{
+    width:100%;
+    max-width:700px;
+    margin-bottom:8px;
+}
+
