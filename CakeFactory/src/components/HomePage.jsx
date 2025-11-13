@@ -1,3 +1,4 @@
+import HomeImage from '../images/Home.jpeg';
 const HomePage =() =>{
     return(
         <>
@@ -5,22 +6,16 @@ const HomePage =() =>{
             <div className="main-content">
                 <h1>Welcome</h1>
                 <p>
-                        At Cake Factory, we believe that every celebration deserves a masterpiece — and every craving deserves satisfaction. Our app was born 
-                    from a simple idea: to make ordering cakes as joyful and effortless as eating them.We’re a passionate team of bakers, designers, and tech 
-                    enthusiasts who came together to revolutionize how people discover and enjoy cakes. Whether you're planning a birthday party, a wedding, 
-                    a corporate event, or just treating yourself on a Tuesday, Cake Factory connects you with the finest local bakeries and custom cake 
-                    creators — all at your fingertips.
+                            At Cake Factory, every cake tells my story. I am a passionate baker who has dedicated years to perfecting the art of baking, combining flavors, textures, and designs to create cakes that delight both the eyes and the taste buds. My love for baking has led me to experiment with countless recipes and styles, and my creations have been recognized for their creativity and attention to detail.
                 </p>
-                <p>     Our Mission is to bring sweetness, creativity, and convenience to every celebration by making cake ordering simple, personalized, 
-                    and delightful.We saw how stressful and time-consuming it could be to find the perfect cake — calling bakeries, browsing outdated websites, 
-                    and hoping for the best.So we built Cake Factory to simplify the process, empower customers with choice, and support local bakers with a modern platform.
+                <p>         I make it easy for you to bring your cake vision to life. You can browse my selection of cakes and personalize them exactly as you like—choose the flavor, size, frosting, decorations, and even add a custom message. Placing an order is simple, and you can update delivery details, add a new order, or cancel an existing one anytime, giving you full control over your sweet creations.
                 </p>
                 <p>
-                        Join the Sweet Revolution Cake Factory isn’t just an app — it’s a celebration of flavor, creativity, and connection.Download today 
+                            With Cake Factory, I combine my passion, creativity, and dedication to deliver more than just a cake—I deliver a memorable experience. Each cake is crafted with care and attention to detail, ensuring that it is not only delicious but also a beautiful centerpiece for your special moments.Cake Factory isn’t just an app — it’s a celebration of flavor, creativity, and connection.Download today 
                     and turn your next occasion into something unforgettable.
                 </p>
             </div>
-            <img src="/images/Home.jpeg" width="100%" alt="Cake collections" /> \images\Home.jpeg
+            <img src= {HomeImage} width="100%" alt="Cake image welcome page" /> 
         </main>
         </>
     );

@@ -1,5 +1,5 @@
 export const mockCake = [
-    { id: 101,
+    { id: 1011,
       name: "Double Chocalate drip sundae cake",
       description: "Rich and moist chocolate cake", 
       price: 25, 

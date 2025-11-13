@@ -1,3 +1,13 @@
+html{
+     font-size: clamp(18px,2vw, 20px);
+     height: 100vh;
+     box-sizing:border-box;
+}
+*,
+*:before,
+*:after{
+    box-sizing: inherit;
+}
 
 body{
     background-color: whitesmoke;
@@ -25,7 +35,6 @@ body::before{
     display:flex;
     flex-direction:column;
    width :100%;
-   height :100%;
     min-height:100vh;
 }
 header,
@@ -37,6 +46,34 @@ footer{
      color: rgb(14, 3, 3);
      width:100%;
      padding: 15px clamp( 20px,4vw,30px) 20px;
+}
+.socialMediaIcons{
+    margin-top: "10px";
+    display: "flex";
+    gap: "20px"
+}
+@keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
+    transform: scale(1); 
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
+    transform: scale(1.15);
+  }
+}
+
+/* Apply glowing effect to all social icons */
+.socialMediaIcons {
+  animation: glow 2s infinite ease-in-out;
+  transition: transform 0.3s;
+}
+
+/* On hover, make the glow stronger and hold scale */
+.socialMediaIcons:hover {
+  animation-play-state: paused;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 1));
+  transform: scale(1.2);
 }
 
 main{
@@ -117,7 +154,7 @@ a:active{
     vertical-align:top;
     color:#1e323c;
     background-color:white;
-    width:10%;
+    width:100%;
     margin-bottom:15px;
     padding:12px;
     border:none;
@@ -141,7 +178,7 @@ a:active{
 /*layout component*/
 .nav-menu {
   display: flex;
-  flex-direction:row;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -169,12 +206,11 @@ a:active{
     cursor: pointer;
 }
 /* Card components*/
-.cake-card-container{
-    display:grid;
-    columns:1;
-    column-gap:15px;
-    margin-top:20px;
-    gap:1rem
+#cake-card-container{
+    column-count:1;
+    column-gap:1rem;
+    padding:1rem;
+    
 }
 .cake-details-container{
     display:flex;
@@ -182,17 +218,142 @@ a:active{
     align-items:center;
 }
 .cake-card-text{
-    display: flex;
+  display: flex;
   flex-direction: column;
   word-wrap: break-word;
   white-space: normal;
+  align-items: center;    /* center text content under image */
+  text-align: center;
+  padding: 0.5rem 0;
 }
 .cake-card-text > h5{
     margin-bottom:4px;
 }
+.cake-card-text > h6{
+    margin-top: 0;
+}
 .cake-card-image{
-    width:100%;
-    max-width:700px;
-    margin-bottom:8px;
+    width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  object-fit: cover;
+  display: block;
+}
+/*Media Querires*/
+
+ 
+/* Tablet: 2 columns */
+@media screen and (min-width: 600px) {
+    header{
+        
+        justify-content: space-between;
+        padding:15px clamp(20px,4vw,30px);
+    }
+     .nav-menu {
+    flex-direction: row;  
+    align-items: center;     
+    gap: 12px;               
+    padding: 10px 0;
+  }
+    
+  #cake-card-container {
+    column-count:2;
+    column-gap: 1.5rem;
+  }
+}
+
+/* Desktop: 3 columns */
+@media screen and (min-width: 1024px) {
+   #cake-card-container {
+    column-count:3;
+    column-gap: 2rem;
+  }
+  
+}
+
+
+/* Optional: Large desktop (4 columns) */
+@media screen and (min-width: 1440px) {
+  #cake-card-container {
+    column-count:4;
+    column-gap: 2rem; 
+     }
+     
+}
+/*contact page*/
+.contact-page {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+
+
+.contact-info {
+  background-color: #f9f9f9;
+  padding: 16px;
+  margin-bottom: 32px;
+  border-radius: 8px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: grid;
+ 
+}
+
+.form-group label {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 120px;
+ 
+}
+
+button[type="submit"] {
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #83062f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #a32a48;
+}
+
+/* Responsive design for contact page*/
+@media screen and (max-width: 600px) {
+  .contact-page {
+    padding: 12px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
 }
 

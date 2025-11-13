@@ -1,20 +1,20 @@
-
+import {useState} from 'react';
 import './App.css';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-import CakeCard from'./components/CakeCard.jsx';
 import {mockCake} from './test-data/mockCake';
+import ShopPage from './components/ShopPage.jsx';
+import HomePage from './components/HomePage.jsx';
+import ContactPage from './components/ContactPage.jsx';
 
 function App() {
-  const cakeJSX=[...mockCake].map(cake=>{
-    return<CakeCard key={cake.id} cake ={cake}/>
-  })
+  const [currentPage, setCurrentPAge] = useState('contact');
 return(
   <div id="body-container">
     <Header />
-    <div id="cake-card-container">
-      {cakeJSX}
-    </div>
+    {currentPage=='home' && <HomePage />}
+    {currentPage=='shop' && <ShopPage cakes= {mockCake}/>}
+    {currentPage=='contact' && <ContactPage />}
     <Footer />
   </div>
 )

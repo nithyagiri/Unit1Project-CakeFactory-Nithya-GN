@@ -1,4 +1,5 @@
 import Card from'./Card.jsx';
+import Spacer from './Spacer.jsx';
 const CakeCard =({cake}) =>{
     const getImageURL = () => {
         return 'https://i.ibb.co/' + cake.imageId;
@@ -15,6 +16,7 @@ const CakeCard =({cake}) =>{
      {/*}           <h6>{cake.description} </h6>
                 <h6>{`Price: ${cake.price} $`}</h6> */}
             </div>
+            <Spacer marginY="10px"/>
         </Card>
     );
 };
