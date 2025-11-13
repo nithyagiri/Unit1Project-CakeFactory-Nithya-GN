@@ -150,7 +150,7 @@ a:active{
 /*layout component*/
 .nav-menu {
   display: flex;
-  flex-direction:row;
+  flex-direction:column;
   justify-content: center;
   align-items: center;
   gap: 20px;
@@ -219,10 +219,17 @@ a:active{
 /* Tablet: 2 columns */
 @media screen and (min-width: 600px) {
     header{
-        flex-direction:row;
+        
         justify-content: space-between;
         padding:15px clamp(20px,4vw,30px);
     }
+     .nav-menu {
+    flex-direction: row;  
+    align-items: center;     
+    gap: 12px;               
+    padding: 10px 0;
+  }
+    
   #cake-card-container {
     column-count:2;
     column-gap: 1.5rem;
@@ -235,6 +242,7 @@ a:active{
     column-count:3;
     column-gap: 2rem;
   }
+  
 }
 
 
@@ -244,4 +252,5 @@ a:active{
     column-count:4;
     column-gap: 2rem; 
      }
+     
 }
