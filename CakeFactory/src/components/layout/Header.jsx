@@ -1,14 +1,12 @@
 import NavMenu from "./NavMenu";
-const Header = (setCurrentPage) =>{
+const Header = ({setCurrentPage}) =>{
     return(
         <header>
            <div id="cake">
             <strong><center>Cake Factory</center></strong>
             </div>
-            <NavMenu setCurrentPage={setCurrentPage} />
+            <NavMenu  setCurrentPage={setCurrentPage} />
         </header>
-       
-
     );
 };
 
