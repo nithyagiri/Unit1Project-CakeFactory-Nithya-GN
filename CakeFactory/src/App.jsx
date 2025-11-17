@@ -15,7 +15,7 @@ return(
     <Header setCurrentPage={setCurrentPage} />
     {currentPage ==='home' && <HomePage setCurrentPage={setCurrentPage} />}
     {currentPage ==='shop' && <ShopPage cakes= {mockCake} setCurrentPage={setCurrentPage} setSelectedCake={setSelectedCake}/>}
-    {currentPage ==='order' &&<OrderPage cakes={selectedCake} setSelectedCake={setCurrentPage}/>}
+    {currentPage ==='order' &&<OrderPage cake={selectedCake} setCurrentPage={setCurrentPage}/>}
     {currentPage ==='contact' && <ContactPage />}
 
     <Footer />

@@ -5,6 +5,23 @@ export const mockCake = [
       price: 25, 
       customize: "yes",
       imageId: "XZJ8SBZH/Double-Chocalate-drip-sundae-cake.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "8-inch", addPrice: 8 },
+        { label: "10-inch", addPrice: 15 }
+      ],
+      flavors: [
+               { name: "Dark Chocolate" },
+               { name: "Milk Chocolate" },
+               { name: "Mocha" } 
+              ],
+      fillings: [
+        { label: "Chocolate Fudge", addPrice: 4 },
+        { label: "Nutella Cream", addPrice: 5 }
+      ],
+      canWriteMessage: true
+    }
     },
     { id: 201,
       name: "Strawberry Dream", 
@@ -12,6 +29,23 @@ export const mockCake = [
       price: 30, 
       customize: "yes",
       imageId: "twhn9bB7/images.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "8-inch", addPrice: 7 }
+      ],
+      flavors: [
+               { name: "Vanilla" },
+               { name: "Strawberry" },
+               { name: "Berry Fusion" } 
+              ],
+      fillings: [
+        { label: "Strawberry Jam", addPrice: 3 },
+        { label: "Fresh Berry Cream", addPrice: 4 }
+      ],
+      canWriteMessage: true
+    }
+
     },
     { id: 301, 
       name: "Floral medley", 
@@ -19,6 +53,25 @@ export const mockCake = [
       price: 20, 
       customize: "yes",
       imageId: "fVxbJ5KP/Floral-medley.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "8-inch", addPrice: 5 },
+        { label: "10-inch", addPrice: 12 }
+      ],
+      flavors: [
+               { name:"Vanilla"  },
+               { name:"Rose"  },
+               { name: "Almond"} 
+              ],
+             
+      fillings: [
+        { label: "Vanilla Cream", addPrice: 2 },
+        { label: "Almond Frosting", addPrice: 3 }
+      ],
+      canWriteMessage: true
+    }
+
     },
     { id: 401,
       name: "Pretty-Pink cake",
@@ -26,6 +79,22 @@ export const mockCake = [
       price: 49.95, 
       customize: "yes",
       imageId: "p6sb6gWb/Pretty-Pink.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "9-inch", addPrice: 10 }
+      ],
+      flavors: [
+               { name:"Strawberry"  },
+               { name:"Vanilla" },
+               { name:"Rose Milk" } 
+              ],
+      fillings: [
+        { label: "Strawberry Cream", addPrice: 4 },
+        { label: "Rose Cream", addPrice: 3 }
+      ],
+      canWriteMessage: true
+    }
     },
     { id: 501,
       name: "Purple Bunting", 
@@ -33,6 +102,22 @@ export const mockCake = [
       price: 55.95, 
       customize: "yes",
       imageId: "4R1YGkNW/Purple-Bunting.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "10-inch", addPrice: 12 }
+      ],
+      flavors: [
+               { name:"Blackberry"  },
+               { name:"Vanilla"  },
+               { name:"Blueberry" } 
+              ],
+      fillings: [
+        { label: "Berry Cream", addPrice: 4 },
+        { label: "Blueberry Jam", addPrice: 3 }
+      ],
+      canWriteMessage: true
+    }
     },
     { id: 601, 
       name: "Rainbow*s Crown", 
@@ -40,6 +125,23 @@ export const mockCake = [
       price: 53.95,
       customize: "yes", 
       imageId: "DDK5b4Rs/Rainbow-s-Crown.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "8-inch", addPrice: 6 }
+      ],
+      flavors: [
+               { name:"Vanilla"  },
+               { name:"Funfetti"  },
+               { name:"Rainbow Swirl" } 
+              ],
+      fillings: [
+        { label: "Whipped Cream", addPrice: 2 },
+        { label: "Fruit Confetti", addPrice: 3 }
+      ],
+      canWriteMessage: true
+    }
+
     },
     { id: 701,
       name: "Say It With Sprinkles",
@@ -47,6 +149,22 @@ export const mockCake = [
       price: 49.95, 
       customize: "yes",
       imageId: "yFVcqg2V/Say-It-With-Sprinkles.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "8-inch", addPrice: 6 }
+      ],
+      flavors: [
+               { name:"Vanilla"  },
+               { name:"Birthday Cake"  },
+               { name:"Confetti" } 
+              ],
+      fillings: [
+        { label: "Cream Cheese", addPrice: 3 },
+        { label: "Vanilla Cream", addPrice: 2 }
+      ],
+      canWriteMessage: true
+    }
     },
     { id: 801,
       name: "Sunflower Skies", 
@@ -54,6 +172,23 @@ export const mockCake = [
       price: 47.95, 
       customize: "yes",
       imageId: "TxfXhGyC/Sunflower-skies.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "9-inch", addPrice: 9 }
+      ],
+      flavors: [
+               { name:"Lemon" },
+               { name:"Vanilla" },
+               { name:"Honey" } 
+              ],
+      fillings: [
+        { label: "Lemon Curd", addPrice: 3 },
+        { label: "Honey Cream", addPrice: 3 }
+      ],
+      canWriteMessage: true
+    }
+
     },
     { id: 901, 
       name: "White Rose Simplicity Cake", 
@@ -61,6 +196,22 @@ export const mockCake = [
       price: 47.95,
       customize: "yes", 
       imageId: "NdmqT5Nb/White-rose-simplicity-cake.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "10-inch", addPrice: 10 }
+      ],
+      flavors: [
+               { name:"Vanilla"  },
+               { name:"Coconut"  },
+               { name:"Almond" } 
+              ],
+      fillings: [
+        { label: "Coconut Cream", addPrice: 4 },
+        { label: "Almond Cream", addPrice: 3 }
+      ],
+      canWriteMessage: true
+    }
     },
     { id: 101,
       name: "A Splash of Royal Flowers",
@@ -68,6 +219,23 @@ export const mockCake = [
       price: 55.95,
       customize: "yes", 
       imageId: "Df1MLk17/A-Spalsh-of-Royal-Flowers.jpg" ,
+      customization: {
+      sizes: [
+        { label: "7-inch", addPrice: 0 },
+        { label: "10-inch", addPrice: 12 }
+      ],
+      flavors:[
+               { name:"Blueberry" },
+               { name:"Vanilla" },
+               { name: "Lavender"} 
+              ],
+      fillings: [
+        { label: "Lavender Cream", addPrice: 5 },
+        { label: "Blueberry Jam", addPrice: 4 }
+      ],
+      canWriteMessage: true
+    }
+
     },
     { id: 111,
       name: "Antique Ruffling Flowers", 
@@ -75,6 +243,22 @@ export const mockCake = [
       price: 41.95, 
       customize: "yes",
       imageId: "1tq2wYb9/Antique-Ruffling-Flowers.jpg" ,
+      customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "9-inch", addPrice: 8 }
+      ],
+      flavors: [
+               { name:"Vanilla"  },
+               { name:"Rose"  },
+               { name: "Almond"} 
+              ],
+      fillings: [
+        { label: "Rose Cream", addPrice: 3 },
+        { label: "Vanilla Cream", addPrice: 2 }
+      ],
+      canWriteMessage: true
+    }
     },
     { id: 121, 
       name: "Beach Breeze Bouquet", 
@@ -82,6 +266,23 @@ export const mockCake = [
       price: 41.95,
       customize: "yes", 
       imageId: "WpvhjqB3/Beech-Breeze-Bouquet.png" ,
+          customization: {
+      sizes: [
+        { label: "6-inch", addPrice: 0 },
+        { label: "8-inch", addPrice: 7 }
+      ],
+      flavors: [
+               { name:"Coconut"},
+               { name:"Vanilla"},
+               { name:"Pineapple"} 
+              ],
+      fillings: [
+        { label: "Coconut Cream", addPrice: 3 },
+        { label: "Pineapple Jam", addPrice: 4 }
+      ],
+      canWriteMessage: true
+    }
+
     },
     { id: 131,
       name: "Bees and Flowers Cupcakes - half dozen",
