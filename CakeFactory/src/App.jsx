@@ -1,20 +1,23 @@
 import {useState} from 'react';
-import './App.css';
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
+import Header from './components/layout/Header.jsx';
+import Footer from './components/layout/Footer.jsx';
+import ShopPage from './components/pages/cakes/ShopPage.jsx';
+import HomePage from './components/pages/HomePage.jsx';
+import ContactPage from './components/pages/ContactPage.jsx';
 import {mockCake} from './test-data/mockCake';
-import ShopPage from './components/ShopPage.jsx';
-import HomePage from './components/HomePage.jsx';
-import ContactPage from './components/ContactPage.jsx';
+import OrderPage from './components/pages/order/OrderPage.jsx';
 
 function App() {
-  const [currentPage, setCurrentPAge] = useState('contact');
+  const [currentPage, setCurrentPage] = useState('home');
+  const [selectedCake,setSelectedCake]=useState(null);
 return(
   <div id="body-container">
-    <Header />
-    {currentPage=='home' && <HomePage />}
-    {currentPage=='shop' && <ShopPage cakes= {mockCake}/>}
-    {currentPage=='contact' && <ContactPage />}
+    <Header setCurrentPage={setCurrentPage} />
+    {currentPage ==='home' && <HomePage setCurrentPage={setCurrentPage} />}
+    {currentPage ==='shop' && <ShopPage cakes= {mockCake} setCurrentPage={setCurrentPage} setSelectedCake={setSelectedCake}/>}
+    {currentPage ==='order' &&<OrderPage cake={selectedCake} setCurrentPage={setCurrentPage}/>}
+    {currentPage ==='contact' && <ContactPage />}
+
     <Footer />
   </div>
 )
