@@ -6,18 +6,21 @@ import HomePage from './components/pages/HomePage.jsx';
 import ContactPage from './components/pages/ContactPage.jsx';
 import {mockCake} from './test-data/mockCake';
 import OrderPage from './components/pages/order/OrderPage.jsx';
+import CheckoutPage from './components/pages/checkout/CheckoutPage.jsx'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCake,setSelectedCake]=useState(null);
+  const [cart, setCart] = useState([]);
+  const [editingItemId, setEditingItemId] = useState(null);
 return(
   <div id="body-container">
     <Header setCurrentPage={setCurrentPage} />
     {currentPage ==='home' && <HomePage setCurrentPage={setCurrentPage} />}
     {currentPage ==='shop' && <ShopPage cakes= {mockCake} setCurrentPage={setCurrentPage} setSelectedCake={setSelectedCake}/>}
-    {currentPage ==='order' &&<OrderPage cake={selectedCake} setCurrentPage={setCurrentPage}/>}
+    {currentPage ==='order' &&<OrderPage cake={selectedCake} setCurrentPage={setCurrentPage} setCart={setCart} editingItemId={editingItemId} setEditingItemId={setEditingItemId}/>}
+    {currentPage === 'checkout' && <CheckoutPage cart={cart} setCart={setCart} setCurrentPage={setCurrentPage} setEditingItemId={setEditingItemId} setSelectedCake={setSelectedCake} />}
     {currentPage ==='contact' && <ContactPage />}
-
     <Footer />
   </div>
 )
