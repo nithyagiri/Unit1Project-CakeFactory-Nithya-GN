@@ -19,7 +19,8 @@ const OrderPage = ({ cake, setCurrentPage, setCart, editingItemId, setEditingIte
         if (cake.customization.sizes){
             sizeOptions = cake.customization.sizes.map(s => ({
                 label: `${s.label} (+$${s.addPrice})`,
-                value: s.label
+                value: s.label,
+                addPrice: s.addPrice
       }));
     }
     if (cake.customization.flavors) {
@@ -32,7 +33,8 @@ const OrderPage = ({ cake, setCurrentPage, setCart, editingItemId, setEditingIte
     if (cake.customization.fillings) {
       fillingOptions = cake.customization.fillings.map(f => ({
                 label: `${f.label} (+$${f.addPrice})`,
-                value: f.label
+                value: f.label,
+                addPrice: f.addPrice
       }));
     }
 
@@ -49,16 +51,33 @@ const OrderPage = ({ cake, setCurrentPage, setCart, editingItemId, setEditingIte
       });
     }
   }, [cake, editingItemId]);
+   const getPrice = (type, value) => {
+    if (!value) return 0;
+    let option;
+    switch (type) {
+      case "size":
+        option = sizeOptions.find((o) => o.value === value);
+        break;
+      case "filling":
+        option = fillingOptions.find((o) => o.value === value);
+        break;
+      default:
+        return 0;
+    }
+    return option.addPrice || 0;
+  };
 
    const handleSubmit = () => {
      const orderItem ={
-        id: editingItemId || Date.now,
+        id: editingItemId || Date.now(),
         originalCakeId: cake.id, 
         name: cake.name,
         basePrice: cake.price,
         size: form.size,
-        flavour: form.flavors,
+        flavour: form.flavour,
         message: form.message,
+        sizePrice: getPrice("size", form.size),
+        fillingPrice: getPrice("filling",form.filling),
         imageId: cake.imageId,
         customize:cake.customize
      };

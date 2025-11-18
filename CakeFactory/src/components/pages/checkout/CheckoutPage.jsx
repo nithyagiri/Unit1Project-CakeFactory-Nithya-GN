@@ -1,6 +1,6 @@
 import mockCake from "../../../test-data/mockCake";
 
-const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelectedCake }) =>{
+  const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelectedCake }) =>{
     const handleEdit = (item) => {
     setEditingItemId(item.id);
     const fullCake = mockCake.find( cake => cake.id === item.originalCakeId); // getting cake data from mockdata
@@ -28,11 +28,13 @@ const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelecte
                    return sum + item.basePrice + extra;
             }, 0);
     };
+    const getCakeTotal = (item) => {
+           const extras = (item.sizePrice || 0) + (item.fillingPrice || 0);
+           return item.basePrice + extras;
+};
     return(
         <div >
-            <button onClick={() => setCurrentPage("order")}>
-             ← Back to Order Page
-            </button>
+            <button onClick={() => setCurrentPage("shop")}>← Back to shop</button>
             <div className ="checkout-items">
                 <h2> Your Order</h2>
                 {cart.length === 0 ? (<p>Your Cart is empty.</p>) : (
@@ -45,10 +47,11 @@ const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelecte
                             {item.flavour && <p><b>Flavour:</b> {item.flavour}</p>}
                             {item.filling && <p><b>Filling:</b> {item.filling}</p>}
                             {item.message && <p><b>Message:</b> {item.message}</p>}
-                            <p><b>Price:</b> ${item.basePrice}</p>      
+                            <p><b>Price:</b> ${getCakeTotal(item)}  </p>
                             <button  onClick={() => {
                                 handleEdit(item)}}>Edit</button>
-                            <button onClick={() => handleDelete(item.id)}>Delete</button>
+                            <button onClick={() => {
+                                handleDelete(item.id)}}>Delete</button>
                         </div>
                         </div> 
                     ))
@@ -56,7 +59,7 @@ const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelecte
             </div>
             <div className="checkout-summary">
                 <h2> Order Summary</h2>
-                <p><b> Total:</b>${CalculateTotal()}</p>
+                <p><b> Order Total:</b>${CalculateTotal()}</p>
                 <button>Checkout</button>  
             </div>
         </div>    
