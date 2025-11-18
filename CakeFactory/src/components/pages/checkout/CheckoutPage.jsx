@@ -1,17 +1,18 @@
 import mockCake from "../../../test-data/mockCake";
 
   const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelectedCake }) =>{
+
     const handleEdit = (item) => {
     setEditingItemId(item.id);
     const fullCake = mockCake.find( cake => cake.id === item.originalCakeId); // getting cake data from mockdata
     setSelectedCake({
         ...fullCake,
         size:item.size,
-        flavour:item.flavors,
+        flavour:item.flavour,
         filling:item.filling,
         message:item.message
      } );
-    setCurrentPage("order");
+     setCurrentPage('order');   
   };
 
     const handleDelete = (id) => {
@@ -60,7 +61,7 @@ import mockCake from "../../../test-data/mockCake";
             <div className="checkout-summary">
                 <h2> Order Summary</h2>
                 <p><b> Order Total:</b>${CalculateTotal()}</p>
-                <button>Checkout</button>  
+                <button onClick={() => setCurrentPage('payment')}>Checkout</button> 
             </div>
         </div>    
     );

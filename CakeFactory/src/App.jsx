@@ -6,7 +6,9 @@ import HomePage from './components/pages/HomePage.jsx';
 import ContactPage from './components/pages/ContactPage.jsx';
 import {mockCake} from './test-data/mockCake';
 import OrderPage from './components/pages/order/OrderPage.jsx';
-import CheckoutPage from './components/pages/checkout/CheckoutPage.jsx'
+import CheckoutPage from './components/pages/checkout/CheckoutPage.jsx';
+import PaymentPage from './components/pages/payment/PaymentPage.jsx';
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -20,6 +22,7 @@ return(
     {currentPage ==='shop' && <ShopPage cakes= {mockCake} setCurrentPage={setCurrentPage} setSelectedCake={setSelectedCake}/>}
     {currentPage ==='order' &&<OrderPage cake={selectedCake} setCurrentPage={setCurrentPage} setCart={setCart} editingItemId={editingItemId} setEditingItemId={setEditingItemId}/>}
     {currentPage === 'checkout' && <CheckoutPage cart={cart} setCart={setCart} setCurrentPage={setCurrentPage} setEditingItemId={setEditingItemId} setSelectedCake={setSelectedCake} />}
+    {currentPage === 'payment' && (<PaymentPage setCurrentPage={setCurrentPage} />)}
     {currentPage ==='contact' && <ContactPage />}
     <Footer />
   </div>

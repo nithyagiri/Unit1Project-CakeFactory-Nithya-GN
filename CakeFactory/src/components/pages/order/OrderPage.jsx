@@ -51,6 +51,7 @@ const OrderPage = ({ cake, setCurrentPage, setCart, editingItemId, setEditingIte
       });
     }
   }, [cake, editingItemId]);
+
    const getPrice = (type, value) => {
     if (!value) return 0;
     let option;
@@ -75,6 +76,7 @@ const OrderPage = ({ cake, setCurrentPage, setCart, editingItemId, setEditingIte
         basePrice: cake.price,
         size: form.size,
         flavour: form.flavour,
+        filling:form.filling,
         message: form.message,
         sizePrice: getPrice("size", form.size),
         fillingPrice: getPrice("filling",form.filling),
@@ -84,7 +86,7 @@ const OrderPage = ({ cake, setCurrentPage, setCart, editingItemId, setEditingIte
      setCart(prev => {
         if (editingItemId){
             return prev.map(item =>
-                item.id ===editingItemId ? orderItem :item);
+                item.id === editingItemId ? orderItem :item);
             }
             return [...prev, orderItem];
         });
