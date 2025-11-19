@@ -15,14 +15,15 @@ function App() {
   const [selectedCake,setSelectedCake]=useState(null);
   const [cart, setCart] = useState([]);
   const [editingItemId, setEditingItemId] = useState(null);
+  const [orderTotal, setOrderTotal] = useState(0);
 return(
   <div id="body-container">
     <Header setCurrentPage={setCurrentPage} />
     {currentPage ==='home' && <HomePage setCurrentPage={setCurrentPage} />}
     {currentPage ==='shop' && <ShopPage cakes= {mockCake} setCurrentPage={setCurrentPage} setSelectedCake={setSelectedCake}/>}
     {currentPage ==='order' &&<OrderPage cake={selectedCake} setCurrentPage={setCurrentPage} setCart={setCart} editingItemId={editingItemId} setEditingItemId={setEditingItemId}/>}
-    {currentPage === 'checkout' && <CheckoutPage cart={cart} setCart={setCart} setCurrentPage={setCurrentPage} setEditingItemId={setEditingItemId} setSelectedCake={setSelectedCake} />}
-    {currentPage === 'payment' && (<PaymentPage setCurrentPage={setCurrentPage} />)}
+    {currentPage === 'checkout' && <CheckoutPage cart={cart} setCart={setCart} setCurrentPage={setCurrentPage} setEditingItemId={setEditingItemId} setSelectedCake={setSelectedCake} setOrderTotal={setOrderTotal} />}
+    {currentPage === 'payment' && (<PaymentPage setCurrentPage={setCurrentPage} total={orderTotal} />)}
     {currentPage ==='contact' && <ContactPage />}
     <Footer />
   </div>

@@ -1,6 +1,6 @@
 import mockCake from "../../../test-data/mockCake";
 
-  const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelectedCake }) =>{
+  const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelectedCake, setOrderTotal }) =>{
 
     const handleEdit = (item) => {
     setEditingItemId(item.id);
@@ -61,7 +61,13 @@ import mockCake from "../../../test-data/mockCake";
             <div className="checkout-summary">
                 <h2> Order Summary</h2>
                 <p><b> Order Total:</b>${CalculateTotal()}</p>
-                <button onClick={() => setCurrentPage('payment')}>Checkout</button> 
+                <button onClick={() => 
+                  { const total = CalculateTotal(); 
+                    setOrderTotal(total);         
+                    setCurrentPage('payment')
+                   }}>
+                    Checkout
+                </button> 
             </div>
         </div>    
     );
