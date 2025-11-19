@@ -8,10 +8,10 @@ const HomePage =( {setCurrentPage}) =>{
                             At Cake Factory, every cake tells my story. I am a passionate baker who has dedicated years to perfecting the art of baking, combining flavors, textures, and designs to create cakes that delight both the eyes and the taste buds. My love for baking has led me to experiment with countless recipes and styles, and my creations have been recognized for their creativity and attention to detail.
                 </p>
                 <p>         I make it easy for you to bring your cake vision to life. You can browse my {' '}
-                           <span
-                            className="link-like"
-                            onClick={() =>{
-                                setCurrentPage('shop');
+                           <span 
+                              className="link-like" 
+                               onClick={() =>{
+                               setCurrentPage('shop');
                             }}
                             >
                             collection of cakes 

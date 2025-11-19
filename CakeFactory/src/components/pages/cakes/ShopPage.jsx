@@ -3,7 +3,7 @@ const ShopPage =({cakes, setCurrentPage, setSelectedCake}) =>
   {
   const handleSelectCake = (cake) => {
     setSelectedCake(cake);
-    setCurrentPage("order");
+    setCurrentPage('order');
   };
   let cakeJSX=[...cakes].map(cake=>{
     return <CakeCard key={cake.id} 
