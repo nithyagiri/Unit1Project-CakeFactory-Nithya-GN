@@ -1,9 +1,29 @@
-import HomeImage from '../../images/Home.jpeg';
-const HomePage =( {setCurrentPage}) =>{
+import {useState} from 'react';
+import HomeImage from '../../../images/Home.jpeg';
+import mockCake from '../../../test-data/mockCake';
+import "./HomePage.css";
+
+const HomePage =( {setCurrentPage,setSelectedCake}) =>{
+    const [isSpinning, setIsSpinning] = useState(false);
+    const [surpriseCake, setSurpriseCake] = useState(null);
+    const handleSurpriseMe =() =>{
+        setIsSpinning(true);
+        setSurpriseCake(null);
+        setTimeout(()=> {
+            const randomCake = mockCake[Math.floor(Math.random() *mockCake.length)]
+            setSurpriseCake(randomCake);
+        },1200);
+        };
+        const goToOrder =() =>{
+            setIsSpinning(false);
+            setSelectedCake(surpriseCake);
+            setCurrentPage('order');
+        };
     return(
              <main>
-            <div className="main-content">
-                <h1>Welcome!</h1>
+            <div className="home-top-section">
+                <div className ="about-text">
+                     <h1>Welcome!</h1>
                 <p>
                             At Cake Factory, every cake tells my story. I am a passionate baker who has dedicated years to perfecting the art of baking, combining flavors, textures, and designs to create cakes that delight both the eyes and the taste buds. My love for baking has led me to experiment with countless recipes and styles, and my creations have been recognized for their creativity and attention to detail.
                 </p>
@@ -23,8 +43,31 @@ const HomePage =( {setCurrentPage}) =>{
                     and turn your next occasion into something unforgettable.
                 </p>
             </div>
-            <img src= {HomeImage} width="100%" alt="Cake image welcome page" /> 
+             <div className="surprise-column">
+          <button className="surprise-btn" onClick={handleSurpriseMe}>
+            🎁 Click this button for the surprise!
+          </button>
+
+          {surpriseCake && (
+            <div className="surprise-container">
+              <img
+                src={"https://i.ibb.co/" + surpriseCake.imageId}
+                className={isSpinning ? "float-glow" : ""}
+                alt="Surprise Cake"
+              />
+              <h3>{surpriseCake.name}</h3>
+              <button className="order-now-btn" onClick={goToOrder}>
+                Order Now
+              </button>
+            </div>
+          )}
+            </div>    
+            </div>
+            <div className ="home-bottom-image">
+              <img src= {HomeImage} width="100%" alt="Cake image welcome page" /> 
+            </div>
         </main>
     );
 };
 export default HomePage;
+

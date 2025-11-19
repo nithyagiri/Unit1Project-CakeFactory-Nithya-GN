@@ -1,0 +1,105 @@
+.checkout-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 30px;
+  padding: 30px;
+  background: #f4f7fb;
+}
+
+/* Header row */
+.checkout-header {
+  grid-column: 1 / 2;
+  background: white;
+  padding: 12px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #555;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* EACH ITEM CARD */
+.checkout-card {
+  background: white;
+  display: grid;
+  grid-template-columns: 120px 2fr 1fr 1fr 50px;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.checkout-img {
+  width: 100%; 
+  height: 80px;
+  object-fit: cover;
+}
+.cake-name {
+  color: #0076d6;
+  margin-bottom: 6px;
+}
+
+.edit-btn {
+  margin-top: 8px;
+  background: none;
+  border: none;
+  color: #0076d6;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 0;
+}
+.checkout-left {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.checkout-price p {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.trash-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+.checkout-summary {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.total-amount {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 12px;
+  background: #f51ed1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  border: 2px solid #720363;
+  color: #db0795;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
