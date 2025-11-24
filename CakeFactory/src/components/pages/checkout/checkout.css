@@ -38,49 +38,28 @@
   object-fit: cover;
 }
 .cake-name {
-  color: #0076d6;
+  color:  #720505;
   margin-bottom: 6px;
+  font-size: 30px;
+  font-style: normal;
 }
-
-.edit-btn {
-  margin-top: 8px;
-  background: none;
-  border: none;
-  color: #0076d6;
-  cursor: pointer;
-  font-size: 15px;
-  padding: 0;
-}
-.checkout-left {
+.checkout-lft {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-
-.checkout-price p {
-  font-size: 17px;
-  font-weight: 600;
-}
-
-.trash-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-}
+    
 .checkout-summary {
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-
 .total-amount {
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 20px;
 }
-
 .checkout-btn {
   width: 100%;
   padding: 12px;
@@ -92,7 +71,6 @@
   cursor: pointer;
   margin-bottom: 10px;
 }
-
 .continue-btn {
   width: 100%;
   padding: 12px;

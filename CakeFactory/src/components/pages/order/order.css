@@ -1,8 +1,8 @@
 /* MAIN WRAPPER */
 .order-container {
   display: flex;
+  gap: 20px;
   justify-content: center;
-  padding: 20px;
 }
 
 .order-card {
@@ -14,6 +14,9 @@
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
   max-width: 1100px;
 }
+
+
+
 
 /* LEFT IMAGE */
 .order-image-box {
@@ -83,4 +86,43 @@
 
 .fav-btn:hover {
   background: #eaf2ff;
+}
+
+@media screen and (min-width: 600px) {
+    .order-card {
+flex-direction: row;
+padding: 25px;
+}
+.order-image {
+max-height: 300px;
+}
+.order-title { font-size: 2.2rem; }
+.order-price { font-size: 1.6rem; }
+}
+
+/* Desktop: 3 columns */
+@media screen and (min-width: 1024px) {
+   .order-card {
+gap: 30px;
+padding: 30px;
+}
+.order-image {
+max-height: 350px;
+}
+.order-title { font-size: 2.5rem; }
+.order-price { font-size: 1.8rem; }
+}
+
+
+/* Optional: Large desktop (4 columns) */
+@media screen and (min-width: 1440px) {
+  .order-card {
+max-width: 1200px;
+gap: 35px;
+}
+.order-image {
+max-height: 400px;
+}
+.order-title { font-size: 2.7rem; }
+.order-price { font-size: 2rem; }
 }

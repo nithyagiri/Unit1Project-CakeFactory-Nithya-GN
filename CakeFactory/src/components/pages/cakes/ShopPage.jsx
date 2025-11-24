@@ -1,9 +1,11 @@
 import CakeCard from "./CakeCard";
-const ShopPage =({cakes, setCurrentPage, setSelectedCake}) => 
+import { useNavigate } from "react-router";
+const ShopPage =({cakes, setSelectedCake}) => 
   {
-  const handleSelectCake = (cake) => {
+   const navigate = useNavigate();
+   const handleSelectCake = (cake) => {
     setSelectedCake(cake);
-    setCurrentPage('order');
+    navigate ('/order');
   };
   let cakeJSX=[...cakes].map(cake=>{
     return <CakeCard key={cake.id} 

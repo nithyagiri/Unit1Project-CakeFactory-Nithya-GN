@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./payment.css";
+import { useNavigate } from "react-router";
 
-const PaymentPage = ({ setCurrentPage, total }) => {
+const PaymentPage = ({ total }) => {
+  const navigate =useNavigate();
   const [cardName, setCardName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
@@ -24,7 +26,7 @@ const PaymentPage = ({ setCurrentPage, total }) => {
     if (cvv.length < 3) return alert("Invalid CVV.");
 
     setShowSuccess(true);
-    setTimeout(() => setCurrentPage("home"), 2000);
+    setTimeout(() => navigate('/'), 2000);
     
   };
 
@@ -98,7 +100,7 @@ const PaymentPage = ({ setCurrentPage, total }) => {
         <button className="pay-button">Pay Now</button>
       </form>
 
-      <button className="back-button" onClick={() => setCurrentPage("checkout")}>
+      <button className="back-button" onClick={() => navigate('/checkout')}>
         ← Back to Checkout
       </button>
     </div>

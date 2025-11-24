@@ -137,9 +137,3 @@
   text-decoration: underline;
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 480px) {
-  .payment-container {
-    width: 90%;
-  }
-}

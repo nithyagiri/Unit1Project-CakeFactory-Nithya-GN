@@ -1,9 +1,11 @@
 import {useState} from 'react';
+import {Link} from "react-router";
 import HomeImage from '../../../images/Home.jpeg';
 import mockCake from '../../../test-data/mockCake';
 import "./HomePage.css";
+import { Route } from 'react-router';
 
-const HomePage =( {setCurrentPage,setSelectedCake}) =>{
+const HomePage =( {setSelectedCake}) =>{
     const [isSpinning, setIsSpinning] = useState(false);
     const [surpriseCake, setSurpriseCake] = useState(null);
     const handleSurpriseMe =() =>{
@@ -28,14 +30,11 @@ const HomePage =( {setCurrentPage,setSelectedCake}) =>{
                             At Cake Factory, every cake tells my story. I am a passionate baker who has dedicated years to perfecting the art of baking, combining flavors, textures, and designs to create cakes that delight both the eyes and the taste buds. My love for baking has led me to experiment with countless recipes and styles, and my creations have been recognized for their creativity and attention to detail.
                 </p>
                 <p>         I make it easy for you to bring your cake vision to life. You can browse my {' '}
-                           <span 
+                           <Link 
                               className="link-like" 
-                               onClick={() =>{
-                               setCurrentPage('shop');
-                            }}
-                            >
+                              to="/shop">
                             collection of cakes 
-                            </span>
+                            </Link>
                             {''} and personalize them exactly as you like—choose the flavor, size, frosting, decorations, and even add a custom message. Placing an order is simple, and you can update delivery details, add a new order, or cancel an existing one anytime, giving you full control over your sweet creations.
                 </p>
                 <p>
@@ -45,7 +44,7 @@ const HomePage =( {setCurrentPage,setSelectedCake}) =>{
             </div>
              <div className="surprise-column">
           <button className="surprise-btn" onClick={handleSurpriseMe}>
-            🎁 Click this button for the surprise!
+            🎁 Click to generate randon cakes!
           </button>
 
           {surpriseCake && (
