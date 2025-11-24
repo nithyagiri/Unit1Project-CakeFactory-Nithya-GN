@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router";
 import mockCake from "../../../test-data/mockCake";
+import CheckoutCard from "./CheckoutCard";
 import  "./checkout.css";
 
   const CheckoutPage = ({cart, setCart,setEditingItemId, setSelectedCake, setOrderTotal }) =>{
     const navigate =useNavigate();
+
+    
+  // Editing a cart item: populating OrderPage form with selected item's data
     const handleEdit = (item) => {
     setEditingItemId(item.id);
     const fullCake = mockCake.find( cake => cake.id === item.originalCakeId); // getting cake data from mockdata
@@ -16,12 +20,13 @@ import  "./checkout.css";
      } );
      navigate('/order');   
   };
-
+  
+  // Remove item from cart 
     const handleDelete = (id) => {
           setCart(cart.filter(item => item.id !== id));
     };
 
-    
+  // Calculate total price of all items in cart   
     const CalculateTotal =()=>{
         return cart.reduce((sum, item) => 
             {
@@ -31,6 +36,8 @@ import  "./checkout.css";
                    return (sum + item.basePrice + extra);
             }, 0);
     };
+
+  // Calculate total price for a single cake item 
     const getCakeTotal = (item) => {
            const extras = (item.sizePrice || 0) + (item.fillingPrice || 0);
            return  Number(((item.basePrice + extras) * item.quantity).toFixed(2));
@@ -46,29 +53,13 @@ import  "./checkout.css";
 
                 {cart.length === 0 ? (<p>Your Cart is empty.</p>) : (
                     cart.map((item) =>(
-                        <div className="checkout-card" key ={item.id} >
-                            <img src ={"https://i.ibb.co/" + item.imageId} className="checkout-img" alt ={item.name}/> 
-                        <div className="checkout-details"> 
-                        <h3 className="cake-name">{item.name}</h3>
-                        <ul>
-                            {item.size && <li><p><b>Size:</b> {item.size}</p></li>}
-                            {item.flavour && <li><p><b>Flavour:</b> {item.flavour}</p></li>}
-                            {item.filling && <li><p><b>Filling:</b> {item.filling}</p></li>}
-                            {item.message && <li><p><b>Message:</b> {item.message}</p></li>}
-                        </ul> 
-                        
-                        </div>    
-                        <div >
-                            <p>{item.quantity}</p>   
-                        </div>
-                        <div className="checkout-price">
-                            <p>${getCakeTotal(item)}  </p>    
-                        </div> 
-                        <div>  
-                            <button onClick={() => { handleEdit(item)}}>Edit  </button>     
-                            <button onClick={() => { handleDelete(item.id)}}>Delete</button>
-                        </div> 
-                        </div> 
+                        <CheckoutCard
+              key={item.id}
+              item={item}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+              getCakeTotal={getCakeTotal}
+            /> 
                     ))
                 )}
             </div>

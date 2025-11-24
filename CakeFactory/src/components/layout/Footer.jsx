@@ -13,7 +13,7 @@ const Footer =() => {
                 <FaFacebook size={40} color="#3b5998" /> 
                 </a>   
                 <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/mailtocakefactory/"
                 target="_blank"
                 rel="noopener noreferrer">
                 <FaInstagram size={40} color="#E4405F" />
