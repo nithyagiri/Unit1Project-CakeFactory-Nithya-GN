@@ -1,5 +1,6 @@
 import CakeCard from "./CakeCard";
 import { useNavigate } from "react-router";
+import "./shop.css"
 const ShopPage =({cakes, setSelectedCake}) => 
   {
    const navigate = useNavigate();

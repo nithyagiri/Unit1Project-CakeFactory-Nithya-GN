@@ -3,11 +3,12 @@ import "./payment.css";
 import { useNavigate } from "react-router";
 
 const PaymentPage = ({ total }) => {
-  const navigate =useNavigate();
+  const navigate = useNavigate();
   const [cardName, setCardName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
+  const [errors, setErrors] = useState({});
   const [showSuccess, setShowSuccess] = useState(false);
 
   const getCardBrand = () => {
@@ -20,14 +21,21 @@ const PaymentPage = ({ total }) => {
   const handlePayment = (e) => {
     e.preventDefault();
 
-    if (cardNumber.length < 16) return alert("Invalid card number.");
-    if (!expiry.match(/^\d{2}\/\d{2}$/))
-      return alert("Expiry must be MM/YY.");
-    if (cvv.length < 3) return alert("Invalid CVV.");
+    const newErrors = {};
+    if (!cardName.trim()) newErrors.cardName = "Card holder name is required";
+    if (cardNumber.length < 16) newErrors.cardNumber = "Card number must be 16 digits";
+    if (!expiry.match(/^\d{2}\/\d{2}$/)) newErrors.expiry = "Expiry must be MM/YY";
+    if (cvv.length < 3) newErrors.cvv = "CVV must be 3 digits";
 
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
     setShowSuccess(true);
+
     setTimeout(() => navigate('/'), 2000);
-    
   };
 
   return (
@@ -46,7 +54,9 @@ const PaymentPage = ({ total }) => {
         <div className="chip"></div>
         <p className="card-brand">{getCardBrand()}</p>
         <p className="card-number-preview">
-          {cardNumber ? cardNumber : "•••• •••• •••• ••••"}
+          {cardNumber
+            ? cardNumber.replace(/(\d{4})/g, "$1 ").trim()
+            : "•••• •••• •••• ••••"}
         </p>
         <div className="card-bottom">
           <p>{cardName || "CARD HOLDER"}</p>
@@ -54,22 +64,22 @@ const PaymentPage = ({ total }) => {
         </div>
       </div>
 
-      {/* Form */}
+      {/* Payment Form */}
       <form className="payment-form" onSubmit={handlePayment}>
         <label>Name on Card</label>
         <input
           value={cardName}
           onChange={(e) => setCardName(e.target.value)}
-          required
         />
+        {errors.cardName && <div className="error">{errors.cardName}</div>}
 
         <label>Card Number</label>
         <input
           maxLength="16"
           value={cardNumber}
           onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ""))}
-          required
         />
+        {errors.cardNumber && <div className="error">{errors.cardNumber}</div>}
 
         <div className="row">
           <div className="col">
@@ -79,8 +89,8 @@ const PaymentPage = ({ total }) => {
               maxLength="5"
               value={expiry}
               onChange={(e) => setExpiry(e.target.value)}
-              required
             />
+            {errors.expiry && <div className="error">{errors.expiry}</div>}
           </div>
 
           <div className="col">
@@ -90,14 +100,13 @@ const PaymentPage = ({ total }) => {
               maxLength="3"
               value={cvv}
               onChange={(e) => setCvv(e.target.value.replace(/\D/g, ""))}
-              required
             />
+            {errors.cvv && <div className="error">{errors.cvv}</div>}
           </div>
         </div>
 
-        <h3 className="total">Total: ${total}</h3>
-
-        <button className="pay-button">Pay Now</button>
+         <h3><center>Total: ${total}</center></h3>
+        <button type="submit" className="common-btn">Pay Now</button>
       </form>
 
       <button className="back-button" onClick={() => navigate('/checkout')}>

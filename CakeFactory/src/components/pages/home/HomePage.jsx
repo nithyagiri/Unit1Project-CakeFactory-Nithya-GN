@@ -1,8 +1,8 @@
 import {useState} from 'react';
-import {Link} from "react-router";
+import {Link, useNavigate} from "react-router";
 import HomeImage from '../../../images/Home.jpeg';
 import mockCake from '../../../test-data/mockCake';
-import "./HomePage.css";
+import "./home.css";
 import { Route } from 'react-router';
 
 const HomePage =( {setSelectedCake}) =>{
@@ -16,10 +16,11 @@ const HomePage =( {setSelectedCake}) =>{
             setSurpriseCake(randomCake);
         },1200);
         };
+        const navigate =useNavigate();
         const goToOrder =() =>{
             setIsSpinning(false);
             setSelectedCake(surpriseCake);
-            setCurrentPage('order');
+            navigate('/order');
         };
     return(
              <main>
@@ -43,8 +44,8 @@ const HomePage =( {setSelectedCake}) =>{
                 </p>
             </div>
              <div className="surprise-column">
-          <button className="surprise-btn" onClick={handleSurpriseMe}>
-            🎁 Click to generate randon cakes!
+          <button className="common-btn" onClick={handleSurpriseMe}>
+            🎁 Click to generate random cakes!
           </button>
 
           {surpriseCake && (
@@ -55,7 +56,7 @@ const HomePage =( {setSelectedCake}) =>{
                 alt="Surprise Cake"
               />
               <h3>{surpriseCake.name}</h3>
-              <button className="order-now-btn" onClick={goToOrder}>
+              <button className="common-btn" onClick={goToOrder}>
                 Order Now
               </button>
             </div>

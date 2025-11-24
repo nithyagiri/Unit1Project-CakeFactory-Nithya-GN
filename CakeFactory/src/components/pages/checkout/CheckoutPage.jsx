@@ -28,12 +28,12 @@ import  "./checkout.css";
                let extra = 0;
                if (item.sizePrice) extra += item.sizePrice;
                if (item.fillingPrice) extra += item.fillingPrice;
-                   return sum + item.basePrice + extra;
+                   return (sum + item.basePrice + extra);
             }, 0);
     };
     const getCakeTotal = (item) => {
            const extras = (item.sizePrice || 0) + (item.fillingPrice || 0);
-           return  (item.basePrice + extras) * item.quantity;
+           return  Number(((item.basePrice + extras) * item.quantity).toFixed(2));
 };
     return(
         <div className ="checkout-container">
@@ -75,7 +75,7 @@ import  "./checkout.css";
             <div className="checkout-summary">
                 <h2> Order Summary</h2>
                 <p><b> Order Total:</b>${CalculateTotal()}</p>
-                <button className="checkout-btn" 
+                <button className="common-btn" 
                         onClick={() =>{ 
                           const total = CalculateTotal(); 
                           setOrderTotal(total);         

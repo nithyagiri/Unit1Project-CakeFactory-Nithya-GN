@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { MdLocationOn, MdPhone, MdEmail, MdAccessTime } from "react-icons/md";
+import {useNavigate} from "react-router";
 import { FaFacebook } from "react-icons/fa";
+import { MdLocationOn, MdPhone, MdEmail, MdAccessTime } from "react-icons/md";
+import Select from "../../forms/input/Select.jsx";
+import Input from "../../forms/input/Input.jsx";
+import Button from "../../forms/input/Button.jsx";
 import "./contact.css";
 
+
 const ContactPage = () => {
+  const navigate =useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -65,6 +71,7 @@ const ContactPage = () => {
             <p><FaFacebook size={20} /> <strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=61583264956563">Facebook Page</a></p>
           </div>
           <div className="map-container">
+            <h1>Google maps direction:</h1>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3108.XXXXXXX!2d-90.275083!3d38.616329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x0000000000000000!2s2027%20Edwards%20St%2C%20St.%20Louis%2C%20MO%2063110!5e0!3m2!1sen!2sus!4vXXXXXXX"
               width="100%"
@@ -80,84 +87,92 @@ const ContactPage = () => {
         <div className="contact-right">
           <h2>Send Us a Message</h2>
           <form onSubmit={handleSubmit}>
-            <table>
-              <tbody>
-                <tr>
-                  <td><label htmlFor="name">Name:</label></td>
-                  <td>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                    />
-                    {errors.name && <div className="error">{errors.name}</div>}
-                  </td>
-                </tr>
-                <tr>
-                  <td><label htmlFor="email">Email:</label></td>
-                  <td>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                    {errors.email && <div className="error">{errors.email}</div>}
-                  </td>
-                </tr>
-                <tr>
-                  <td><label htmlFor="phone">Phone:</label></td>
-                  <td>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                    />
-                    {errors.phone && <div className="error">{errors.phone}</div>}
-                  </td>
-                </tr>
-                <tr>
-                  <td><label htmlFor="reason">Reason for Contact:</label></td>
-                  <td>
-                    <select
-                      id="reason"
-                      name="reason"
-                      value={formData.reason}
-                      onChange={handleChange}
-                    >
-                      <option value="">— Please Select —</option>
-                      <option value="place an order">Place an order</option>
-                      <option value="questions about order">Questions about order</option>
-                      <option value="wholesale inquiry">Wholesale inquiry</option>
-                      <option value="speak to management">Speak to management</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td><label htmlFor="message">Message:</label></td>
-                  <td>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                    ></textarea>
-                  </td>
-                </tr>
-                <tr>
-                  <td colSpan="2" style={{ textAlign: "center" }}>
-                    <button type="submit">Submit</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </form>
+  <table>
+    <tbody>
+      <tr>
+        <td><label>Name:</label></td>
+        <td>
+          <Input
+            label=""
+            value={formData.name}
+            onChange={(e) =>
+              setFormData({ ...formData, name: e.target.value })
+            }
+            placeholder="Enter your name"
+            type="text"
+          />
+          {errors.name && <div className="error">{errors.name}</div>}
+        </td>
+      </tr>
+      <tr>
+        <td><label>Email:</label></td>
+        <td>
+          <Input
+            label=""
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+            type="email"
+            placeholder="you@example.com"
+          />
+          {errors.email && <div className="error">{errors.email}</div>}
+        </td>
+      </tr>
+      <tr>
+        <td><label>Phone:</label></td>
+        <td>
+          <Input
+            label=""
+            value={formData.phone}
+            onChange={(e) =>
+              setFormData({ ...formData, phone: e.target.value })
+            }
+            type="tel"
+            placeholder="1234567890"
+          />
+          {errors.phone && <div className="error">{errors.phone}</div>}
+        </td>
+      </tr>
+      <tr>
+        <td><label>Reason for Contact:</label></td>
+        <td>
+          <Select
+            label=""
+            value={formData.reason}
+            onChange={(e) =>
+              setFormData({ ...formData, reason: e.target.value })
+            }
+            options={[
+              { label: "Place an order", value: "place an order" },
+              { label: "Questions about order", value: "questions about order" },
+              { label: "Wholesale inquiry", value: "wholesale inquiry" },
+              { label: "Speak to management", value: "speak to management" },
+              { label: "Other", value: "other" }
+            ]}
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><label>Message:</label></td>
+        <td>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+            ></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colSpan="2" style={{ textAlign: "center" }}>
+          <Button label="Submit" className="common-btn" type="submit" />
+          
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</form>
         </div>
       </section>
     </main>

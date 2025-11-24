@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import Input from "./input/Input.jsx";
-import Select from "./input/Select.jsx";
-import Button from "./input/Button.jsx";
+import Select from "../../forms/input/Select.jsx";
+import Input from "../../forms/input/Input.jsx";
+import Button from "../../forms/input/Button.jsx";
 import "./order.css"; 
 
 const OrderPage = ({
@@ -168,7 +168,7 @@ const OrderPage = ({
             {cake.customize === "yes" && (
               <>
                 <Select
-                  label="Size        :"
+                  label="Size:"
                   value={form.size}
                   onChange={(e) =>
                     setForm({ ...form, size: e.target.value })
@@ -177,7 +177,7 @@ const OrderPage = ({
                 />
 
                 <Select
-                  label="Flavor      :"
+                  label="Flavor:"
                   value={form.flavour}
                   onChange={(e) =>
                     setForm({ ...form, flavour: e.target.value })
@@ -186,7 +186,7 @@ const OrderPage = ({
                 />
 
                 <Select
-                  label="Filling     :"
+                  label="Filling:"
                   value={form.filling}
                   onChange={(e) =>
                     setForm({ ...form, filling: e.target.value })
@@ -196,7 +196,7 @@ const OrderPage = ({
 
                 {canWriteMessage && (
                   <Input
-                    label="Inscription:"
+                    label="Message:"
                     value={form.message}
                     onChange={(e) =>
                       setForm({ ...form, message: e.target.value })
@@ -205,10 +205,8 @@ const OrderPage = ({
                 )}
               </>
             )}
-
-            {/* BUTTONS */}
-            <div className="order-buttons">            
-              <Button
+            <div>            
+              <Button className
                 label={editingItemId ? "Update Cart" : "Add to Cart"}
                 onClick={handleSubmit}
               />
