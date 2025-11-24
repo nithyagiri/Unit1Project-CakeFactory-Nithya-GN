@@ -18,12 +18,12 @@ const OrderPage = ({
     filling: "",
     message: "",
   });
-
+ // Initialize options based on cake customization
   let sizeOptions = [];
   let flavourOptions = [];
   let fillingOptions = [];
   let canWriteMessage = false;
-  
+  // Return early if no cake is selected
    if (!cake) {
     return (
       <div>
@@ -33,7 +33,7 @@ const OrderPage = ({
       </div>
     );
   }
-
+ // Setup options if customization is allowed
   if (cake.customization) {
     if (cake.customization.sizes) {
       sizeOptions = cake.customization.sizes.map((s) => ({
@@ -73,6 +73,7 @@ const OrderPage = ({
     }
   }, [cake, editingItemId]);
 
+   // Calculate additional price for size or filling
   const getPrice = (type, value) => {
     if (!value) return 0;
     let option;

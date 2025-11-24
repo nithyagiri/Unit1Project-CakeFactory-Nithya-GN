@@ -20,11 +20,13 @@ const ContactPage = () => {
 
   const [errors, setErrors] = useState({});
 
+  // Handle changes to form inputs and clear existing error for that field
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" }); // clear error on change
+    setErrors({ ...errors, [e.target.name]: "" }); 
   };
 
+  // Validating form fields before submission
   const validate = () => {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
@@ -47,11 +49,11 @@ const ContactPage = () => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
+       // Display errors if validation fails
       setErrors(validationErrors);
     } else {
+       // Clear errors and reset form after successful submission
       setErrors({});
-      console.log("Form submitted:", formData);
-      // TODO: send data to backend
       setFormData({ name: "", email: "", phone: "", reason: "", message: "" });
     }
   };
@@ -73,7 +75,7 @@ const ContactPage = () => {
           <div className="map-container">
             <h1>Google maps direction:</h1>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3108.XXXXXXX!2d-90.275083!3d38.616329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x0000000000000000!2s2027%20Edwards%20St%2C%20St.%20Louis%2C%20MO%2063110!5e0!3m2!1sen!2sus!4vXXXXXXX"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2190.0000000000005!2d‑90.275083071945!3d38.616329365603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d8b46f1cbf24f1%3A0x0000000000000000!2s2027+Edwards+St%2C+St.+Louis%2C+MO+63110!5e0!3m2!1sen!2sus!4v1700000000000"
               width="100%"
               height="100%"
               loading="lazy"

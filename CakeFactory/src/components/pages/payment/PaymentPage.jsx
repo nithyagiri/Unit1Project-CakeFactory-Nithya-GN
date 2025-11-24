@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./payment.css";
 import { useNavigate } from "react-router";
-
+ 
+// Local state for payment form inputs
 const PaymentPage = ({ total }) => {
   const navigate = useNavigate();
   const [cardName, setCardName] = useState("");
@@ -10,7 +11,8 @@ const PaymentPage = ({ total }) => {
   const [cvv, setCvv] = useState("");
   const [errors, setErrors] = useState({});
   const [showSuccess, setShowSuccess] = useState(false);
-
+  
+   // Determine card brand based on starting digit
   const getCardBrand = () => {
     if (cardNumber.startsWith("4")) return "Visa";
     if (cardNumber.startsWith("5")) return "Mastercard";
@@ -18,6 +20,7 @@ const PaymentPage = ({ total }) => {
     return "Card";
   };
 
+   // Handle payment form submission
   const handlePayment = (e) => {
     e.preventDefault();
 
