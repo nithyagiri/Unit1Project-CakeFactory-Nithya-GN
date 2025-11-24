@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router";
 import mockCake from "../../../test-data/mockCake";
 import  "./checkout.css";
 
-  const CheckoutPage = ({cart, setCart,setCurrentPage,setEditingItemId, setSelectedCake, setOrderTotal }) =>{
-
+  const CheckoutPage = ({cart, setCart,setEditingItemId, setSelectedCake, setOrderTotal }) =>{
+    const navigate =useNavigate();
     const handleEdit = (item) => {
     setEditingItemId(item.id);
     const fullCake = mockCake.find( cake => cake.id === item.originalCakeId); // getting cake data from mockdata
@@ -13,7 +14,7 @@ import  "./checkout.css";
         filling:item.filling,
         message:item.message
      } );
-     setCurrentPage('order');   
+     navigate('/order');   
   };
 
     const handleDelete = (id) => {
@@ -27,16 +28,16 @@ import  "./checkout.css";
                let extra = 0;
                if (item.sizePrice) extra += item.sizePrice;
                if (item.fillingPrice) extra += item.fillingPrice;
-                   return sum + item.basePrice + extra;
+                   return (sum + item.basePrice + extra);
             }, 0);
     };
     const getCakeTotal = (item) => {
            const extras = (item.sizePrice || 0) + (item.fillingPrice || 0);
-           return  (item.basePrice + extras) * item.quantity;
+           return  Number(((item.basePrice + extras) * item.quantity).toFixed(2));
 };
     return(
         <div className ="checkout-container">
-            <div className ="checkout-left">
+            <div className ="checkout-lft">
             <div className="checkout-header">
             <span>Product Description</span>
             <span>Quantity</span>
@@ -47,21 +48,24 @@ import  "./checkout.css";
                     cart.map((item) =>(
                         <div className="checkout-card" key ={item.id} >
                             <img src ={"https://i.ibb.co/" + item.imageId} className="checkout-img" alt ={item.name}/> 
-                        <div className="checkout-details">
-                            <h3><bold>{item.name}</bold></h3>
-                            {item.size && <p><b>Size:</b> {item.size}</p>}
-                            {item.flavour && <p><b>Flavour:</b> {item.flavour}</p>}
-                            {item.filling && <p><b>Filling:</b> {item.filling}</p>}
-                            {item.message && <p><b>Message:</b> {item.message}</p>}
-                            <button className="edit-btn" onClick={() => { handleEdit(item)}}>Edit</button>
-                        </div> 
-                        <div className="checkout-qty">
+                        <div className="checkout-details"> 
+                        <h3 className="cake-name">{item.name}</h3>
+                        <ul>
+                            {item.size && <li><p><b>Size:</b> {item.size}</p></li>}
+                            {item.flavour && <li><p><b>Flavour:</b> {item.flavour}</p></li>}
+                            {item.filling && <li><p><b>Filling:</b> {item.filling}</p></li>}
+                            {item.message && <li><p><b>Message:</b> {item.message}</p></li>}
+                        </ul> 
+                        
+                        </div>    
+                        <div >
                             <p>{item.quantity}</p>   
                         </div>
                         <div className="checkout-price">
-                            <p><b>Price:</b> ${getCakeTotal(item)}  </p>    
+                            <p>${getCakeTotal(item)}  </p>    
                         </div> 
-                        <div className="checkout-delete">       
+                        <div>  
+                            <button onClick={() => { handleEdit(item)}}>Edit  </button>     
                             <button onClick={() => { handleDelete(item.id)}}>Delete</button>
                         </div> 
                         </div> 
@@ -71,14 +75,14 @@ import  "./checkout.css";
             <div className="checkout-summary">
                 <h2> Order Summary</h2>
                 <p><b> Order Total:</b>${CalculateTotal()}</p>
-                <button className="checkout-btn" 
+                <button className="common-btn" 
                         onClick={() =>{ 
                           const total = CalculateTotal(); 
                           setOrderTotal(total);         
-                          setCurrentPage('payment')}}
+                          navigate('/payment')}}
                 >Checkout 
                 </button> 
-                <button className="continue-btn" onClick={() => { setCurrentPage("shop")}}> Continue Shopping </button>
+                <button className="continue-btn" onClick={() => { navigate("/shop")}}> Continue Shopping </button>
             </div>
         </div>    
     );
