@@ -120,5 +120,14 @@
   cursor: pointer;
   text-decoration: underline;
 }
+@media screen and (max-width: 599px) {
 
+  /* Shrink inputs to fit mobile screen */
+  .row input {
+    width: 100%; 
+    padding: 6px;
+    font-size: 13px; 
+    box-sizing: border-box;
+  }
+}
 

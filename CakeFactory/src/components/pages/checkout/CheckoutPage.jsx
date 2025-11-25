@@ -46,7 +46,7 @@ import  "./checkout.css";
         <div className ="checkout-container">
             <div className ="checkout-lft">
             <div className="checkout-header">
-            <span>Product Description</span>
+            <span>Product       Description</span>
             <span>Quantity</span>
             <span>Price</span>
             </div>

@@ -66,3 +66,151 @@
   font-size: 16px;
   cursor: pointer;
 }
+/* MOBILE — below 600px  Keep horizontal layout, Edit/Delete stacked vertically */
+@media screen and (max-width: 599px) {
+
+  .checkout-container {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 16px;
+  }
+  .checkout-header {
+    font-size: 13px;
+    padding: 10px;
+    grid-template-columns: 1.5fr 1fr 1fr;
+  }
+  /* Product card horizontal layout, shrunk */
+  .checkout-card {
+    display: grid;
+    grid-template-columns: 60px 1.5fr 0.8fr 0.8fr; /* remove actions from grid */
+    gap: 8px;
+    padding: 10px;
+    font-size: 0.65rem;
+  }
+  .checkout-img {
+    height: 55px;
+  }
+  .cake-name {
+    font-size: 18px;
+  }
+  .checkout-lft {
+    gap: 5px;
+  }
+  /* Edit/Delete buttons in row */
+  .checkout-actions {
+    display: flex;
+    flex-direction: row; 
+    gap: 6px;
+    margin-top: 6px;
+    width: 100%; 
+  }
+  .checkout-actions button {
+    padding: 6px 0;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+  /* Qty & Price row */
+  .checkout-qty,
+  .checkout-price {
+    font-size: 0.85rem;
+    margin-right: 6px;
+  }
+  /* Order Summary + Continue button below all items */
+  .checkout-summary {
+    order: 99;
+    margin-top: 16px;
+    padding: 14px;
+    font-size: 14px;
+  }
+  .continue-btn {
+    margin-top: 12px;
+    font-size: 14px;
+    padding: 12px;
+    width: 100%;
+  }
+}
+
+/* =========================================
+   DESKTOP — 1024px+
+========================================= */
+@media screen and (min-width: 1024px) {
+
+  .checkout-container {
+    gap: 32px;
+    padding: 26px;
+  }
+
+  .checkout-card {
+    grid-template-columns: 120px 2fr 1fr 1fr 50px;
+    padding: 16px;
+    gap: 18px;
+  }
+
+  .checkout-img {
+    height: 100px;
+  }
+
+  .cake-name {
+    font-size: 22px;
+  }
+
+  .checkout-qty,
+  .checkout-price {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+
+  .checkout-actions button {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+
+  .checkout-summary {
+    padding: 18px;
+    margin-top: 28px;
+  }
+}
+
+/* =========================================
+   LARGE DESKTOP — 1440px+
+========================================= */
+@media screen and (min-width: 1440px) {
+
+  .checkout-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+
+  .checkout-card {
+    grid-template-columns: 150px 2fr 1fr 1fr 60px;
+    padding: 18px;
+    gap: 20px;
+  }
+
+  .checkout-img {
+    height: 120px;
+  }
+
+  .cake-name {
+    font-size: 24px;
+  }
+
+  .checkout-qty,
+  .checkout-price {
+    font-size: 1rem;
+    margin-right: 12px;
+  }
+
+  .checkout-actions button {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+
+  .checkout-summary {
+    padding: 22px;
+    margin-top: 36px;
+    font-size: 15px;
+  }
+}
