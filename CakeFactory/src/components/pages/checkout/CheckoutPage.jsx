@@ -67,13 +67,14 @@ import  "./checkout.css";
                 <h2> Order Summary</h2>
                 <p><b> Order Total:</b>${CalculateTotal()}</p>
                 <button className="common-btn" 
+                        disabled={cart.length === 0}
                         onClick={() =>{ 
                           const total = CalculateTotal(); 
                           setOrderTotal(total);         
                           navigate('/payment')}}
                 >Checkout 
                 </button> 
-                <button className="continue-btn" onClick={() => { navigate("/shop")}}> Continue Shopping </button>
+                <button className="continue-btn"  onClick={() => { navigate("/shop")}}> Continue Shopping </button>
             </div>
         </div>    
     );

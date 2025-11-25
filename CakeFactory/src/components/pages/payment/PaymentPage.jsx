@@ -3,7 +3,7 @@ import "./payment.css";
 import { useNavigate } from "react-router";
  
 // Local state for payment form inputs
-const PaymentPage = ({ total }) => {
+const PaymentPage = ({ total, setCart }) => {
   const navigate = useNavigate();
   const [cardName, setCardName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
@@ -27,7 +27,19 @@ const PaymentPage = ({ total }) => {
     const newErrors = {};
     if (!cardName.trim()) newErrors.cardName = "Card holder name is required";
     if (cardNumber.length < 16) newErrors.cardNumber = "Card number must be 16 digits";
-    if (!expiry.match(/^\d{2}\/\d{2}$/)) newErrors.expiry = "Expiry must be MM/YY";
+    const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!expiryRegex.test(expiry)) {
+         newErrors.expiry = "Enter expiry in MM/YY format";
+        } 
+        else {
+         const [mm, yy] = expiry.split("/").map(Number);
+         const currentDate = new Date();
+         const currentYear = currentDate.getFullYear() % 100; // last two digits
+         const currentMonth = currentDate.getMonth() + 1;
+        if (yy < currentYear || (yy === currentYear && mm < currentMonth)) {
+           newErrors.expiry = "Card has expired";
+            }
+        }
     if (cvv.length < 3) newErrors.cvv = "CVV must be 3 digits";
 
     if (Object.keys(newErrors).length > 0) {
@@ -37,7 +49,7 @@ const PaymentPage = ({ total }) => {
 
     setErrors({});
     setShowSuccess(true);
-
+    setCart([]);
     setTimeout(() => navigate('/'), 2000);
   };
 

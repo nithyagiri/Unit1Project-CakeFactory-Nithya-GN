@@ -25,7 +25,7 @@ return(
      <Route path="/shop" element={<ShopPage cakes= {mockCake} setSelectedCake={setSelectedCake}/>} />
      <Route path="/order" element={<OrderPage cake={selectedCake} setCart={setCart} editingItemId={editingItemId} setEditingItemId={setEditingItemId}/>} />
      <Route path="/checkout" element={<CheckoutPage cart={cart} setCart={setCart} setEditingItemId={setEditingItemId} setSelectedCake={setSelectedCake} setOrderTotal={setOrderTotal} />} />
-     <Route path="/payment" element={<PaymentPage total={orderTotal} />} />     
+     <Route path="/payment" element={<PaymentPage total={orderTotal} setCart={setCart} />} />     
      <Route path="/contact" element={<ContactPage />} />
     </Routes>
     </main>
