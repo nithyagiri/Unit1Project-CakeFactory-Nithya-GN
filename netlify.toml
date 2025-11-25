@@ -1,4 +1,6 @@
 [build]
-    base = “<project-directory/CakeFactory>”
+    base = “<project-directory>”
     command = “npm run build”
     publish = “dist”  
+
+    
